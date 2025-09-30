@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fees & Class Details - BloomRight Academy</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", Tahoma, sans-serif; }
+    body { background: linear-gradient(to right, #fdfdfd, #e6f0ff); color: #333; line-height: 1.6; }
+
+    /* Header */
+    header {
+      background: #f9fbff;
+      color: #003366;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    header h1 { font-size: 2rem; }
+    header p { font-size: 1rem; color: #555; }
+    header .logo { width: 60px; height: auto; position: absolute; left: 20px; top: 50%; transform: translateY(-50%); }
+
+    /* Navbar */
+    nav { display: flex; justify-content: center; background: #eaf3ff; padding: 10px; flex-wrap: wrap; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+    nav a { color: #003366; text-decoration: none; margin: 10px 15px; font-weight: bold; transition: color 0.3s; }
+    nav a:hover { color: #0073e6; }
+
+    /* Section */
+    section { padding: 50px 20px; max-width: 800px; margin: 0 auto; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+    section h2 { margin-bottom: 20px; color: #003366; }
+    section ul { list-style: none; padding-left: 0; }
+    section ul li { margin-bottom: 12px; padding-left: 30px; position: relative; font-style: italic; color: #333; line-height: 1.6; }
+    section ul li::before { content: "➤"; position: absolute; left: 0; color: #0073e6; font-weight: bold; }
+
+    .fees-info { margin-top: 30px; font-size: 1.1rem; }
+    .fees-info p { margin-bottom: 12px; }
+
+    /* Footer */
+    footer { background: #f9fbff; color: #555; text-align: center; padding: 15px; margin-top: 40px; border-top: 1px solid #ddd; }
+
+    @media (max-width: 768px) {
+      header { flex-direction: column; padding: 30px 15px; }
+      header .logo { position: static; transform: none; margin-bottom: 10px; }
+      nav { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="Images/Logo BloomRight Academy.jpg" width="200" alt="BloomRight Logo" class="logo">
+    <div>
+      <h1>Fees & Class Details</h1>
+    </div>
+  </header>
+
+  <nav>
+    <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="courses.html">Courses</a>
+    <a href="Fees details.html">Fees details</a>
+    <a href="contact.html">Contact</a>
+    
+  </nav>
+
+  <section>
+    <h2>Class Details & Method</h2>
+    <ul>
+      <li><b>Mode of Class</b>: Virtual & Offline Classes Available</li>
+      <li><b>Class Duration:</b> 1-hr class per day & half hour one-to-one discussion for doubts (Total 1 hr 30 mins)</li>
+      <li><b>Timings:</b> Weekends as per your convenience, Weekdays 7 PM - 8 PM</li>
+    </ul>
+
+    <div class="fees-info">
+      <h2>Fee & Batch Info</h2>
+      <p>💸 Fee: ₹10,000</p>
+      <p>Total Duration: 3 Months</p>
+      <p>📌 1st Batch Starts: November (starts soon)</p>
+    </div>
+  </section>
+
+  <footer>
+   <p><i>"Opportunity knocks your door at once. Use it wisely,Never postpone your success."</i></p>
+    <p>© 2025 BloomRight Academy</p>
+  </footer>
+</body>
+</html>
