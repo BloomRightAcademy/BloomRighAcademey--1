@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Callback - BloomRight Academy</title>
+<style>
+  body { font-family: Arial,sans-serif; text-align:center; padding:50px; background:#efc6c6; }
+  h2 { color:#052d5b; }
+</style>
+</head>
+<body>
+<h2>Authorization Completed</h2>
+
+<script>
+  // Optional: You can parse the authorization code from URL if you implement token exchange
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get("code");
+  if(code){
+    console.log("Authorization code:", code);
+    alert("Authorization successful! You may now use your Zoho Sheet integration.");
+  }
+</script>
+</body>
+</html>
