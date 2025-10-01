@@ -9,8 +9,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      line-height: 1.6;
-      background-color: #efc6c6;
+      background-color: #c6d8ef;
     }
 
     header {
@@ -18,7 +17,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 20px;
-      background-color: #91b5da;
+      background-color: #afc9e3;
       color: rgb(21, 20, 20);
     }
 
@@ -26,7 +25,7 @@
       margin: 0;
     }
 
-    header .logo {
+    .logo {
       width: 150px;
       height: auto;
     }
@@ -48,7 +47,7 @@
       text-decoration: underline;
     }
 
-    /* Contact Form Section */
+    /* Contact Form */
     .contact-container {
       display: flex;
       justify-content: center;
@@ -57,68 +56,49 @@
     }
 
     .contact-form {
-      background: white;
+      background: #fff;
       padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
       max-width: 500px;
       width: 100%;
-      text-align: left;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
     }
 
     .contact-form h2 {
       margin-bottom: 20px;
       color: #052d5b;
-      text-align: center;
-    }
-
-    .contact-form label {
-      display: block;
-      margin: 10px 0 5px;
-      font-weight: bold;
-      color: #333;
     }
 
     .contact-form input,
     .contact-form textarea {
       width: 100%;
       padding: 12px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
+      margin: 10px 0;
       border-radius: 8px;
+      border: 1px solid #ccc;
       font-size: 1rem;
     }
 
-    .contact-form textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-
     .contact-form button {
-      width: 100%;
-      padding: 12px;
+      padding: 12px 20px;
       background-color: #052d5b;
-      color: white;
+      color: #fff;
       border: none;
       border-radius: 8px;
       cursor: pointer;
       font-size: 1rem;
+      transition: background 0.3s ease;
     }
 
     .contact-form button:hover {
       background-color: #0674fb;
     }
 
-    footer {
-      background-color: #acd1f6;
-      color: rgb(29, 28, 28);
-      text-align: center;
-      padding: 15px 10px;
-      margin-top: 20px;
-    }
-
-    footer p {
-      margin: 5px 0;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* Floating WhatsApp Button */
@@ -150,53 +130,37 @@
       height: 35px;
     }
 
-    /* Tooltip styling */
-    .tooltip {
-      position: relative;
-      display: inline-block;
-    }
-
-    .tooltip .tooltiptext {
-      visibility: hidden;
-      width: 160px;
-      background-color: black;
-      color: #fff;
-      text-align: center;
-      padding: 5px 8px;
-      border-radius: 6px;
-      position: absolute;
-      bottom: 70px;
-      right: 0;
-      z-index: 200;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .tooltip:hover .tooltiptext {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    /* Highlight Badge Above WhatsApp */
-    .highlight-badge {
+    /* Animated Seats Notice */
+    .limited-seats {
       position: fixed;
-      bottom: 90px; /* above WhatsApp */
+      bottom: 90px;
       right: 20px;
-      background: #ff4747;
-      color: white;
-      padding: 8px 15px;
-      border-radius: 20px;
+      background: #ff0000;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 8px;
       font-weight: bold;
       font-size: 0.9rem;
-      box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-      z-index: 150;
       animation: pulse 1.5s infinite;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
     }
 
     @keyframes pulse {
       0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.1); opacity: 0.9; }
+      50% { transform: scale(1.1); opacity: 0.8; }
       100% { transform: scale(1); opacity: 1; }
+    }
+
+    footer {
+      background-color: #acd1f6;
+      color: rgb(29, 28, 28);
+      text-align: center;
+      padding: 15px 10px;
+      margin-top: 20px;
+    }
+
+    footer p {
+      margin: 5px 0;
     }
   </style>
 </head>
@@ -217,46 +181,33 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- Contact Form Section -->
+  <!-- Contact Form -->
   <div class="contact-container">
-    <form class="contact-form">
-      <h2>Send Us a Message</h2>
-      
-      <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" placeholder="Enter your name" required>
-      
-      <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" placeholder="Enter your email" required>
-      
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
-      
-      <label for="message">Your Message</label>
-      <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
-      
+    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <h2>Get in Touch</h2>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="text" name="phone" placeholder="Your Phone" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
     </form>
   </div>
 
+  <!-- Limited Seats Notice -->
+  <div class="limited-seats">⚡ Limited Seats – Starts Soon in October!</div>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/919344285979?text=Hello%20BloomRight%20Academy%2C%20I%20would%20like%20to%20know%20more%20about%20your%20courses." 
+     class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+
   <!-- Footer Section -->
   <footer>
     <p><i>"Opportunity knocks your door at once. Use it wisely, Never postpone your success."</i></p>
+    <p>Website : https://bloomrightacademy.github.io/BloomRighAcademey--1/BloomRight%20Codings/index.html</p>
     <p>© 2025 BloomRight Academy</p>
   </footer>
-
-  <!-- Highlight Badge Above WhatsApp -->
-  <div class="highlight-badge">🔥 Limited Seats! Starts Soon – October</div>
-
-  <!-- Floating WhatsApp Button with Tooltip -->
-  <div class="tooltip">
-    <a href="https://wa.me/919344285979?text=Hello%20BloomRight%20Academy%2C%20I%20would%20like%20to%20know%20more%20about%20your%20courses." 
-       class="whatsapp-float" 
-       target="_blank">
-       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-            alt="WhatsApp">
-    </a>
-    <span class="tooltiptext">Chat with us on WhatsApp</span>
-  </div>
 
 </body>
 </html>
