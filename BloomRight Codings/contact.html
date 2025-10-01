@@ -2,45 +2,163 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Contact Us - BloomRight Academy</title>
+  <title>Contact via WhatsApp - BloomRight Academy</title>
   <style>
-    body { font-family: Arial, sans-serif; background: #f4f6f9; padding: 30px; }
+    /* General body style */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      padding: 30px;
+      margin: 0;
+    }
+
+    /* Header with logo and text */
+    header {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      background: #eaf3ff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    header .logo {
+      width: 120px;
+      height: auto;
+      margin-right: 15px;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #003366;
+      font-size: 24px;
+    }
+
+    header p {
+      margin: 0;
+      font-style: italic;
+      font-weight: bold;
+      color: #003366;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #eaf3ff;
+      padding: 10px;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    nav a {
+      color: #003366;
+      text-decoration: none;
+      margin: 10px 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #0073e6;
+    }
+
+    /* Contact form box */
     .form-box {
       background: #fff;
       padding: 25px;
       max-width: 400px;
-      margin: auto;
+      margin: 30px auto;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
-    h2 { text-align: center; color: #2b6cb0; }
+
+    h2 {
+      text-align: center;
+      color: #2b6cb0;
+    }
+
     input, textarea {
-      width: 100%; padding: 10px; margin: 8px 0; border-radius: 5px; border: 1px solid #ccc;
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
     }
+
     button {
-      background: #2b6cb0; color: white; padding: 10px; border: none;
-      border-radius: 5px; width: 100%; cursor: pointer; font-size: 16px;
+      background: #25D366;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      cursor: pointer;
+      font-size: 16px;
     }
-    button:hover { background: #1a4d80; }
+
+    button:hover {
+      background: #128C7E;
+    }
+
+    /* Responsive logo */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      header .logo {
+        width: 100px;
+        margin-bottom: 10px;
+      }
+
+      header h1 {
+        font-size: 20px;
+      }
+    }
   </style>
 </head>
 <body>
+  <header>
+    <img src="Images/Logo.jpg" alt="BloomRight Logo" class="logo">
+    <div>
+      <h1>BloomRight Academy</h1>
+      <p>"Learn Today. Earn Tomorrow."</p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="About.html">About</a>
+    <a href="Courses.html">Courses</a>
+    <a href="Fees details.html">Fees details</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
   <div class="form-box">
-    <h2>Get in Touch</h2>
-    <form id="contactForm">
+    <h2>Contact via WhatsApp</h2>
+    <form id="whatsappForm">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <input type="text" name="phone" placeholder="Phone Number">
       <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
+      <button type="submit">Send via WhatsApp</button>
     </form>
   </div>
 
   <script>
-    document.getElementById("contactForm").addEventListener("submit", function(e) {
+    document.getElementById("whatsappForm").addEventListener("submit", function(e) {
       e.preventDefault();
-      alert("✅ Message sent successfully!");
-      // TODO: Hook this into backend/email service (e.g., Zoho, Formspree, etc.)
+      const name = encodeURIComponent(this.name.value);
+      const email = encodeURIComponent(this.email.value);
+      const phone = encodeURIComponent(this.phone.value || "Not provided");
+      const message = encodeURIComponent(this.message.value);
+
+      const whatsappNumber = "919876543210"; // Replace with your number
+      const whatsappMessage = `Hello! My name is ${name}.%0AEmail: ${email}%0APhone: ${phone}%0AMessage: ${message}`;
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+      window.open(whatsappURL, "_blank");
     });
   </script>
 </body>
