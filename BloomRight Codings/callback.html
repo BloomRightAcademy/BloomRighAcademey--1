@@ -1,25 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> Callback - BloomRight Academy</title>
-<style>
-  body { font-family: Arial,sans-serif; text-align:center; padding:50px; background:#efc6c6; }
-  h2 { color:#052d5b; }
-</style>
+  <meta charset="UTF-8">
+  <title>Zoho OAuth Callback</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      text-align: center;
+      padding: 50px;
+    }
+    .box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      display: inline-block;
+      max-width: 600px;
+      word-wrap: break-word;
+    }
+    h2 { color: #2b6cb0; }
+    code {
+      display: block;
+      background: #edf2f7;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-<h2>Authorization Completed</h2>
+  <div class="box">
+    <h2>Zoho OAuth Callback</h2>
+    <p id="message">Checking for authorization code...</p>
+    <code id="authCode"></code>
+  </div>
 
-<script>
-  // Optional: You can parse the authorization code from URL if you implement token exchange
-  const params = new URLSearchParams(window.location.search);
-  const code = params.get("code");
-  if(code){
-    console.log("Authorization code:", code);
-    alert("Authorization successful! You may now use your Zoho Sheet integration.");
-  }
-</script>
+  <script>
+    // Parse URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+    const error = urlParams.get('error');
+
+    if (code) {
+      document.getElementById("message").innerText = "Authorization Code Received:";
+      document.getElementById("authCode").innerText = code;
+      console.log("Authorization Code:", code);
+    } else if (error) {
+      document.getElementById("message").innerText = "Error during authorization:";
+      document.getElementById("authCode").innerText = error;
+    } else {
+      document.getElementById("message").innerText = "No authorization code found in URL.";
+    }
+  </script>
 </body>
 </html>
