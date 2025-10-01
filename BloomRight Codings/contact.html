@@ -70,11 +70,12 @@
       margin: 30px auto;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-align: center;
     }
 
     h2 {
-      text-align: center;
       color: #2b6cb0;
+      margin-bottom: 20px;
     }
 
     input, textarea {
@@ -95,10 +96,20 @@
       width: 100%;
       cursor: pointer;
       font-size: 16px;
+      margin-top: 10px;
     }
 
     button:hover {
       background: #128C7E;
+    }
+
+    .download-btn {
+      background: #0073e6;
+      margin-top: 15px;
+    }
+
+    .download-btn:hover {
+      background: #005bb5;
     }
 
     /* Responsive logo */
@@ -145,6 +156,11 @@
       <textarea name="message" placeholder="Your Message" required></textarea>
       <button type="submit">Send via WhatsApp</button>
     </form>
+
+    <!-- Download Brochure Button -->
+    <a href="Images/BloomRight Academy Brochure.pdf" download>
+      <button class="download-btn">Download Brochure</button>
+    </a>
   </div>
 
   <script>
