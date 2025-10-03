@@ -71,6 +71,7 @@
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       text-align: center;
+      position: relative;
     }
 
     h2 {
@@ -112,6 +113,25 @@
       background: #005bb5;
     }
 
+    /* Limited seats animation */
+    .limited-seats {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #e63946;
+      animation: blink 1.5s infinite, slideIn 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+
+    @keyframes slideIn {
+      0% { transform: translateX(-5px); }
+      100% { transform: translateX(5px); }
+    }
+
     /* Responsive logo */
     @media (max-width: 600px) {
       header {
@@ -148,7 +168,7 @@
   </nav>
 
   <div class="form-box">
-    <h2>Contact via WhatsApp</h2>
+    <h2>Contact Us</h2>
     <form id="whatsappForm">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
@@ -161,6 +181,9 @@
     <a href="Images/BloomRight Academy Brochure.pdf" download>
       <button class="download-btn">Download Brochure</button>
     </a>
+
+    <!-- Limited Seats Animation -->
+    <div class="limited-seats">⚡ Limited Seats Available! Hurry Up! ⚡</div>
   </div>
 
   <script>
@@ -171,11 +194,16 @@
       const phone = encodeURIComponent(this.phone.value || "Not provided");
       const message = encodeURIComponent(this.message.value);
 
-      const whatsappNumber = "919876543210"; // Replace with your number
+      const whatsappNumber = "919344285979"; // Replace with your number
       const whatsappMessage = `Hello! My name is ${name}.%0AEmail: ${email}%0APhone: ${phone}%0AMessage: ${message}`;
       const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
       window.open(whatsappURL, "_blank");
     });
   </script>
+
+  <footer>
+   <p><i>"Opportunity knocks your door at once. Use it wisely,Never postpone your success."</i></p>
+   <p> Website designed by: Nivetha  Email :bloomrightacademy@zohomail.in</p>
+    <p>© 2025 BloomRight Academy</p>
 </body>
 </html>
